@@ -6,7 +6,7 @@ package
 	import flash.text.TextField;
 	import Injectables.MessageInjectable;
 	import models.vos.Message;
-	import org.flexr.apollo.Injectable;
+	import org.flexr.apollo.injectables.Injectable;
 	import org.flexr.apollo.Injector;
 	import org.flexr.apollo.mappings.InjectorMapping;
 	import org.flexr.apollo.mappings.InjectorPropertyMapping;

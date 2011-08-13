@@ -1,7 +1,7 @@
 package Injectables 
 {
 	import models.vos.Message;
-	import org.flexr.apollo.Injectable;
+	import org.flexr.apollo.injectables.Injectable;
 	
 	/**
 	 * ...

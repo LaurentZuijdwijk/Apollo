@@ -1,6 +1,6 @@
 package org.flexr.apollo.controllers 
 {
-	import org.flexr.apollo.Injectable;
+	import org.flexr.apollo.injectables.Injectable;
 	import org.flexr.apollo.Injector;
 	/**
 	 * Extend this controller to get auto subscribing MVC controllers.

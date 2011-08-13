@@ -1,4 +1,4 @@
-package org.flexr.apollo 
+package org.flexr.apollo.injectables 
 {
 	/**
 	 * ...
