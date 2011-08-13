@@ -48,7 +48,7 @@ package
 			Injector.inject(new Message('Hello Moon'));
 
 			helloController.unregister();
-			Injector.inject(new Message('Trying to leave the moon'));
+			Injector.inject(new Message('Trying to leave the moon'));  // stuck
 		}
 		
 	}
