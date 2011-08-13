@@ -1,8 +1,8 @@
 package org.flexr.apollo.mappings 
 {
-	import org.flexr.naf.Injectable;
-	/**
-	 * ...
+	import org.flexr.apollo.Injectable;
+ 	/**
+	 * abstract injector mappings
 	 * @author 
 	 */
 	public class InjectorMapping 
@@ -14,9 +14,7 @@ package org.flexr.apollo.mappings
 		
 		public function InjectorMapping() 
 		{
-			
-		}
-		
+ 		}
 	}
 
 }

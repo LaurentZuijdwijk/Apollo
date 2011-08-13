@@ -3,7 +3,7 @@ package org.flexr.apollo.mappings
 	
 	/**
 	 * ...
-	 * @author 
+	 * @author Laurent Zuijdwijk
 	 */
 	public class InjectorPropertyMapping extends InjectorMapping
 	{

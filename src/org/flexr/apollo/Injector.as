@@ -1,6 +1,6 @@
 package org.flexr.apollo 
 {
-	import org.flexr.naf.mappings.InjectorMapping;
+	import org.flexr.apollo.mappings.InjectorMapping;
 	/**
 	 * ...
 	 * @author 
@@ -39,5 +39,24 @@ package org.flexr.apollo
  				}
 			}
  		}
+		public static function unregister(val:Injectable):void
+		{
+			for each(var obj:InjectorMapping in _model) {
+ 				if (val is obj.iface)
+				{
+					var i:int = 0;
+					for each(var subscriber:Injectable in obj.subscribers)
+					{
+ 						if (subscriber == val)
+						{
+							obj.subscribers.splice(i, 1);
+						}
+						else{
+							i++;
+						}
+					}
+ 				}
+			}
+		}	
 	}
 }
