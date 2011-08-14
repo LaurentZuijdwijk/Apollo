@@ -5,10 +5,12 @@ package
 	import flash.events.Event;
 	import flash.text.TextField;
 	import Injectables.MessageInjectable;
+	import models.vos.Fuel;
 	import models.vos.Message;
 	import org.flexr.apollo.injectables.Injectable;
 	import org.flexr.apollo.Injector;
 	import org.flexr.apollo.mappings.InjectorMapping;
+	import org.flexr.apollo.mappings.InjectorMethodMapping;
 	import org.flexr.apollo.mappings.InjectorPropertyMapping;
 	
 	/**
@@ -32,6 +34,7 @@ package
 			// create the injector mapping. This is based on a vector using concrete mapping classes.
 			var injectorMap:Vector.<InjectorMapping> = new Vector.<InjectorMapping>();
 			injectorMap.push(new InjectorPropertyMapping(MessageInjectable, 'message', Message));
+			injectorMap.push(new InjectorMethodMapping(MessageInjectable, 'takeOff'));
 			Injector.model = injectorMap;
 			
 			
@@ -42,7 +45,9 @@ package
 			var helloController:HelloWorldController = new HelloWorldController(tf);
 			
 			//We inject some messages.
+			
 			Injector.inject(new Message('Hello World'));
+			Injector.call('takeOff', new Fuel(1000));
 			Injector.inject(new Message('Goodbye World'));
 			
 			Injector.inject(new Message('Hello Moon'));

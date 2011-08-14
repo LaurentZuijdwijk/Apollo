@@ -1,7 +1,6 @@
 package org.flexr.apollo.mappings 
 {
-	import bbc.emfTestHarness.injectables.PlaybackInjectable;
-	
+ 	
 	/**
 	 * ...
 	 * @author 
@@ -9,7 +8,7 @@ package org.flexr.apollo.mappings
 	public class InjectorMethodMapping extends InjectorMapping
 	{
 		public var method:String;
-		public function InjectorMethodMapping(iface:Class, method:String, type:Class) 
+		public function InjectorMethodMapping(iface:Class, method:String) 
 		{
 			this.iface = iface;
 			this.method = method;
