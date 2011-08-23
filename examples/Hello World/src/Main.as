@@ -32,11 +32,11 @@ package
 			removeEventListener(Event.ADDED_TO_STAGE, init);
 			
 			// create the injector mapping. This is based on a vector using concrete mapping classes.
-			var injectorMap:Vector.<InjectorMapping> = new Vector.<InjectorMapping>();
+/*			var injectorMap:Vector.<InjectorMapping> = new Vector.<InjectorMapping>();
 			injectorMap.push(new InjectorPropertyMapping(MessageInjectable, 'message', Message));
 			injectorMap.push(new InjectorMethodMapping(MessageInjectable, 'takeOff'));
 			Injector.model = injectorMap;
-			
+*/			Injector.intefaces = [MessageInjectable];
 			
 			// make the textfield which will be controlled by our controller.
 			var tf:TextField = new TextField();

@@ -4,6 +4,7 @@ package org.flexr.apollo
 	import org.flexr.apollo.injectables.Injectable;
 	import org.flexr.apollo.mappings.InjectorMethodMapping;
 	import org.flexr.apollo.mappings.InjectorPropertyMapping;
+	import org.flexr.apollo.parsers.InterfaceParser;
 	/**
 	 * ...
 	 * @author 
@@ -21,8 +22,19 @@ package org.flexr.apollo
 			_model = val;
 		}
 		
-		public static function set intefaces(val:Vector.<Class>):void
+		public static function set intefaces(val:Array):void
 		{
+			var parser:InterfaceParser = new InterfaceParser();
+			_model = new Vector.<InjectorMapping>();
+			
+			for each(var cl:Class in val)
+			{
+				parser.parse(cl).forEach(function(element:InjectorMapping, val:*,vall:*):void
+					{
+						_model.push(element);
+					});
+			}	
+			trace(_model[0].iface)
 			// do introspection on the interfaces.
 			// make a mappings using the properties and methods in the interfaces.
 			// done. Automated.
@@ -69,7 +81,6 @@ package org.flexr.apollo
  				}
 			}
 		}	
-		
 		public static function call(method:String, arg:Object = null):void
 		{
  			
