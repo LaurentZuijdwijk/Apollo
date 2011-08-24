@@ -10,13 +10,37 @@ Usage of introspection is optional, depending on the amount of control you want 
 Code sample
 -----------
 
+Code below will set-up a minimal actionscript application using Apollo. Notice the (nearly) complete lack of boiler-plate code. 
+
+We have to create an interface that will serve as a mapping proxy. In this example we will map the Person class to this interface.
+
 ```actionscript
 
 public interface IPersonInjectable
 {
-   function set person(val:Person):void
+   function set person(val:Person):void;
 }
 ``` 
+
+Set up our person value object.
+
+```actionscript
+
+public class Person{
+
+   public var first_name:String;
+   public var last_name:String;
+
+   function Person(fist_name:String, last_name:String)
+   {
+	this.first_name = first_name;
+	this.last_name = last_name;
+   }
+}
+
+```
+
+Our controller has to implement the above interface for the injection to work. Controllers will auto-register, so no code to be written.
 
 ```actionscript
 public class PersonViewController extends Controller implements IPersonInjectable
@@ -29,9 +53,12 @@ public class PersonViewController extends Controller implements IPersonInjectabl
    public function set person(val:Person):void
    {
       view.person = val;
+      trace(val.first_name + ' ' + val.last_name)
    }
 }
 ```
+
+In our main class we will set-up the controller and send it a message of type Person. Magic.
 
 ```actionscript
 new PersonViewController();
