@@ -61,6 +61,8 @@ public class PersonViewController extends Controller implements IPersonInjectabl
 In our main class we will set-up the controller and send it a message of type Person. Magic.
 
 ```actionscript
+
+Injector.interfaces = [IPersonInjectable]
 new PersonViewController();
  
 Injector.inject(new Person('Laurent', 'Zuijdwijk'))
