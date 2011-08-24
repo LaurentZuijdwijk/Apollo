@@ -66,21 +66,22 @@ Now we can inject a message of type Person. Magic.
 
 ```actionscript
 
-Injector.interfaces = [IPersonInjectable]
+// Register our interfaces used to construct our mappings
+Injector.interfaces = [IPersonInjectable];
+
+// Create our controller
 new PersonViewController();
  
+//Inject a message
 Injector.inject(new Person('Laurent', 'Zuijdwijk'))
 ```
-Building mappings manually
+Performance considerations
 --------------------------
 
-When we register an array of classes with Injector.interfaces, there will be some reflection going on behind the scenes to build an object map. If introspection is too much overhead, it is possible to create mappings manually. 
+I didn't do any benchmarking yet, but I expect performance to be pretty good. The introspection part is pretty lightweight, mainly because it is only done on a limited set of interfaces. But if you want to contruct mappings manually, this is possible as well. See the example below. 
 
 ```actionscript
 var injectorMap:Vector.<InjectorMapping> = new Vector.<InjectorMapping>();
 injectorMap.push(new InjectorPropertyMapping(IPersonInjectable, 'person', Person));
 Injector.model = injectorMap;
-
 ```
-
-Performance of the intorspection part should be pretty good compared to other dependency injection frameworks that use reflection. This is because in this case we only do reflection on a limited set of interfaces, instead of a larger set ofcontrollers. 
