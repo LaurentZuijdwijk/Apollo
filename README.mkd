@@ -77,7 +77,8 @@ Building mappings manually
 When we register an array of classes with Injector.interfaces, there will be some reflection going on behind the scenes to build an object map. If introspection is too much overhead, it is possible to create mappings manually. 
 
 ```actionscript
-var injectorMap:Vector.<InjectorMapping> = new Vector.<InjectorMapping>();	injectorMap.push(new InjectorPropertyMapping(IPersonInjectable, 'person', Person));
+var injectorMap:Vector.<InjectorMapping> = new Vector.<InjectorMapping>();
+injectorMap.push(new InjectorPropertyMapping(IPersonInjectable, 'person', Person));
 Injector.model = injectorMap;
 
 ```
