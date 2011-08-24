@@ -1,0 +1,33 @@
+AS3 Apollo
+==========
+
+Apollo is an dependency injection and message passing framework based on public interfaces. 
+
+It is lightweight, fast and easy to use. No introspection is used, so overhead is minimal.
+
+```actionscript
+public interface IPersonInjectable
+{
+   function set person(val:Person):void
+}
+ 
+public class PersonViewController extends Controller implements IPersonInjectable
+{
+   public function PersonViewController() 
+   {
+      super();
+   }
+ 
+   public function set person(val:Person):void
+   {
+      view.person = val;
+   }
+}
+ 
+new PersonViewController();
+ 
+Injector.inject(new Person('Laurent', 'Zuijdwijk'))
+```
+
+
+
